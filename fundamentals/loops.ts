@@ -9,7 +9,7 @@
  - filter
  - reduce
  - find
- - iteration patterns [left]
+ - iteration patterns, sequential and parallel excutions
  - custom iterators yield keyword [left]
 */
 
@@ -105,3 +105,17 @@ const users = [
 
 const user = users.find((u) => u.age > 30);
 console.log(user);
+
+const urls = ["url1", "url2", "url3"];
+
+async () => {
+  // Sequential execution
+  for (const url of urls) {
+    const response = await fetch(url);
+    console.log(await response.text());
+  }
+
+  // Parallel execution
+  const promises = urls.map((url) => fetch(url));
+  await Promise.all(promises);
+};
