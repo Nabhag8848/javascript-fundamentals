@@ -10,7 +10,7 @@
  - reduce
  - find
  - iteration patterns, sequential and parallel excutions
- - custom iterators yield keyword [left]
+ - custom iterators yield keyword [in next section]
 */
 
 // basic
