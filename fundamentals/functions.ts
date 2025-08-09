@@ -18,16 +18,3 @@ const addArrow = (x: number, y: number): number => {
 };
 
 console.log(add(3, 4), addExpression(3, 4), addArrow(3, 4));
-
-class MyClass {
-  name: string = "nabhag";
-  nameFunc = () => console.log(this.name);
-
-  greet() {
-    console.log(this.name);
-  }
-}
-
-const instance = new MyClass();
-instance.greet();
-instance.nameFunc();
