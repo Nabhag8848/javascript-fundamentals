@@ -119,3 +119,5 @@ async () => {
   const promises = urls.map((url) => fetch(url));
   await Promise.all(promises);
 };
+
+export {};

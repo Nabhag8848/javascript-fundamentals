@@ -11,3 +11,5 @@ console.log(str.toLowerCase());
 console.log(str.concat("nabhag"));
 console.log(str.startsWith("abha", 1));
 console.log(str === str1);
+
+export {};

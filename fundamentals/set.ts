@@ -11,3 +11,5 @@ for (const [key, value] of set.entries()) {
 
 // for(const value of set.keys())
 // for(const value of set.values()) //both works same
+
+export {}; // Make this file a module
