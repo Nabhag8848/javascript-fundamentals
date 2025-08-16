@@ -102,5 +102,3 @@ class Eagle implements IFly, ISwim {
   swim(): void {}
   constructor(altitude: number, depth: number) {}
 }
-
-
