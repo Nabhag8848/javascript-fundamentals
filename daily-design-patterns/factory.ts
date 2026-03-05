@@ -1,64 +1,32 @@
-// Dialog -> Button for both (Web and Mobile) onClick feature which will close the dialog
-
-abstract class Dialog {
-   abstract close(): void;
-}
-abstract class Button {
-    abstract onClick(): void;
+abstract class Product {
+    abstract price(): number;
 }
 
-class WebDialog extends Dialog {
-    public close(): void {}
-}
-
-class MobileDialog extends Dialog {
-    public close(): void {}
-}
-
-
-class WebButton extends Button {
-    constructor() {
-      super();
-    }
-    public onClick(): void {
-      console.log('onClick')
+class Table extends Product {
+    public price(): number {
+        return 100;
     }
 }
 
-class MobileButton extends Button {
-    constructor() {
-        super();
-    }
-    public onClick(): void {
-      console.log('onClick')
+class Chair extends Product {
+    public price(): number {
+        return 1000;
     }
 }
 
-abstract class UIFactory {
-    abstract createDialog(): Dialog;
-    abstract createButton(): Button;
+class ProductFactory {
+    create(type: 'chair' | 'table'): Product {
+        switch(type) {
+            case 'chair': {
+                return new Chair()
+            }
+            case 'table': {
+                return new Table()
+            }
+        }
+    }
 }
 
-class WebUIFactory extends UIFactory {
-    createDialog(): Dialog {
-      return new WebDialog();
-    }
-    createButton(): Button {
-      return new WebButton();
-    }
-  }
-  
-class MobileUIFactory extends UIFactory {
-  createDialog(): Dialog {
-    return new MobileDialog();
-  }
-  createButton(): Button {
-    return new MobileButton();
-  }
-}
-
-((ui: UIFactory) => {
-    const dialog = ui.createDialog()
-    const button = ui.createButton()
-    button.onClick()
-})(new WebUIFactory())
+const factory = new ProductFactory();
+const chair = factory.create('chair');
+console.log(chair.price())
