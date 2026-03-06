@@ -15,7 +15,7 @@ type T = Car | CarManual;
 abstract class Builder {
     abstract  reset(): void;
     abstract setSeats(seats: number): this;
-    abstract setVariant(variant: CarVariant): Builder
+    abstract setVariant(variant: CarVariant): this
     // setEngine(): Builder
     abstract build(): T
 }
@@ -42,7 +42,7 @@ class CarBuilder implements Builder {
         return this;
     }
 
-    public setVariant(variant: CarVariant): Builder {
+    public setVariant(variant: CarVariant) {
         this.car.variant = variant;
         return this;
     }
@@ -71,7 +71,7 @@ class CarManualBuilder implements Builder {
         return this;
     }
 
-    public setVariant(variant: CarVariant): Builder {
+    public setVariant(variant: CarVariant) {
         this.manual.variant = variant;
         return this;
     }
